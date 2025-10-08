@@ -15,9 +15,44 @@
       <h1 class="title is-1 pt-5 is-flex is-justify-content-center">
         Test list
       </h1>
+      <section class="section">
+        <div class="container">
+          <div class="field">
+            <div class="control">
+              <textarea
+                id="writeText"
+                class="textarea is-link"
+                placeholder="Напишите вопрос..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="field is-grouped is-justify-content-center">
+            <div class="control">
+              <button
+                id="addQustion"
+                onclick="addNew()"
+                class="button is-info is-medium"
+              >
+                Добавить вопрос
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="card-main container pb-5 has-background-link-light">
+        <section class="filtr field is-grouped is-grouped-right">
+          <input class="mt-4" id="OnCheck" type="checkbox" onchange="onBtn()" />
+          <span class="mt-4 has-background-primary">Пройдено</span>
+          <input
+            class="mt-4"
+            id="OffCheck"
+            type="checkbox"
+            onchange="offBtn()"
+          /><span class="mt-4 has-background-danger">Не пройдено</span>
+        </section>
+
         <div id="content" class="content"></div>
-    
       </section>
     </main>
     <script src="./list.js"></script>
