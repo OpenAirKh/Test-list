@@ -1,3 +1,7 @@
+const clearHtml = () => {
+  contentJs.innerHTML = "";
+};
+
 const renderCard = function renderMass(questions) {
   questions.forEach(function (q, index) {
     const indexNum = index + 1;
@@ -35,7 +39,7 @@ renderCard(questionMassJs);
 const falseStatus = questionMassJs.filter((q) => q.status == false);
 const OffCheck = document.getElementById("OffCheck");
 function offBtn() {
-  contentJs.innerHTML = "";
+  clearHtml();
   const checkOffBox = OffCheck.checked ? falseStatus : questionMassJs;
   renderCard(checkOffBox);
 }
@@ -44,7 +48,7 @@ const trueStatus = questionMassJs.filter((q) => q.status == true);
 
 const onCheck = document.getElementById("OnCheck");
 function onBtn() {
-  contentJs.innerHTML = "";
+  clearHtml();
   const checkOnBox = onCheck.checked ? trueStatus : questionMassJs;
   renderCard(checkOnBox);
 }
@@ -56,7 +60,9 @@ function addNew() {
 
   const newQuestion = {
     question: newText,
+    status: false,
   };
+  clearHtml();
   questionMassJs.unshift(newQuestion);
   renderCard(questionMassJs);
 }
